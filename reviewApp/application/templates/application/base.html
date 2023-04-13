@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -10,11 +11,22 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <title>{{title}}</title>
+</head>
+<head>
+  {% if title %}
+
+<title> Touch Electronics - {{title}}</title>
+
+{% else %}
+
+<title> Touch Electronics </title>
+
+{% endif %}
+
 </head>
 
 <body>
-    <div>
-        <header class="site-header">
 
             <nav class="navbar navbar-expand-md fixed-top">          
               <div class="container">       
@@ -31,11 +43,16 @@
                     <a class="nav-item nav-link" href="{% url 'application-contact' %}">Contact</a>        
                   </div>
           
+
                 </div>         
               </div>         
             </nav>        
-          </header>      
+  
+    <div class="container">
+       {%block content%}
+       {% endblock %}
     </div>
+    </body>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -49,5 +66,4 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 </body>
-
 </html>

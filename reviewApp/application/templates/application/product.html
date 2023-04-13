@@ -1,9 +1,151 @@
 {% extends "application/base.html" %}
 {%block content%}
-<div>
-    <h3>
-        "Product"
-    </h3>
-</div>>
+<head>
+    <style>
+          .slider {
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .image-container {
+    width: 1500px;
+    height: 500px;
+    clear: both;
+    position: relative;
+    -webkit-transition: left 2s;
+    -moz-transition: left 2s;
+    -o-transition: left 2s;
+    transition: left 2s;
+  }
+  .slide {
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+  }
+  #slide-11:target ~ .image-container {
+    left: 0px;
+  }
+  #slide-12:target ~ .image-container {
+    left: -500px;
+  }
+  #slide-13:target ~ .image-container {
+    left: -1000px;
+  }  
+  #slide-21:target ~ .image-container {
+    left: 0px;
+  }
+  #slide-22:target ~ .image-container {
+    left: -500px;
+  }
+  #slide-23:target ~ .image-container {
+    left: -1000px;
+  }
+  #slide-31:target ~ .image-container {
+    left: 0px;
+  }
+  #slide-32:target ~ .image-container {
+    left: -500px;
+  }
+  #slide-33:target ~ .image-container {
+    left: -1000px;
+  }
+  .buttons {
+    position: relative;
+    top: -20px;
+  }
+  .buttons a {
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+    background-color: rgb(107, 187, 233);
+  }
+       .header {
+  padding: 20px;
+  text-align: center;
+  background-image: url('https://media.istockphoto.com/id/1142563796/vector/abstract-white-background.jpg?s=612x612&w=0&k=20&c=b10xKL3zEwp2IH6h_qg2Augzm1dfuZMz1ObHPDACY9o=');
+  color: black;
+  font-size: 30px;}
+        </style>
+</head>
+<div class="container" style="margin-top:30px">
+  <br>
+  <div class="header">
+  <header><h1>Products</h1></header><br>
+  </div>
+  <br><br>
+  <div class="row">
+      <div class="col-sm-12">
+        <div class="slider">
+            <span id="slide-11"></span>
+            <span id="slide-12"></span>
+            <span id="slide-13"></span>
+            <div class="image-container">
+              <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MR2Q3ref_VW_34FR+watch-40-alum-midnight-nc-se_VW_34FR_WF_CO_GEO_GB?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1676836906701%2C1661473982766" class="slide" width="500px" height="500px">
+              <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MR2Q3ref_VW_PF+watch-40-alum-midnight-nc-se_VW_PF_WF_CO_GEO_GB?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1676836905839%2C1661469338827" class="slide" width="500px" height="500px">
+              <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MR2Q3ref?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1676671105460" class="slide" width="500px" height="500px">
+            </div>
+            <div class="buttons">
+              <a href="#slide-11"></a>
+              <a href="#slide-12"></a>
+              <a href="#slide-13"></a>
+            </div>
+          </div>
+          <p>Apple Watch - Midnight Aluminium Case with Sport Band<br>
+            From £259<br>
+            <a href>More details here</a>
+        </p>
+       </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="slider">
+        <span id="slide-21"></span>
+        <span id="slide-22"></span>
+        <span id="slide-23"></span>
+        <div class="image-container">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQE23ref_VW_34FR+watch-49-titanium-ultra_VW_34FR_WF_CO+watch-face-49-alpine-ultra_VW_34FR_WF_CO_GEO_GB?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1660713657930%2C1660927566964%2C1661371891042" class="slide" width="500px" height="500px">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQE23ref_VW_PF+watch-49-titanium-ultra_VW_PF_WF_CO+watch-face-49-alpine-ultra_VW_PF_WF_CO_GEO_GB?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1660713639717%2C1660927567672%2C1661371587480"class="slide" width="500px" height="500px">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQE23ref?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1660715727375" class="slide" width="500px" height="500px">
+        </div>
+        <div class="buttons">
+          <a href="#slide-21"></a>
+          <a href="#slide-22"></a>
+          <a href="#slide-23"></a>
+        </div>
+      </div>
+      <br>
+      <p>Apple Watch Ultra - Titanium Case with Green Alpine Loop<br>
+        From £849<br>
+      <a href>More details here</a></p>
+   </div>
+</div>
+<div class="col-sm-12">
+    <div class="slider">
+        <span id="slide-31"></span>
+        <span id="slide-32"></span>
+        <span id="slide-33"></span>
+        <div class="image-container">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQXY3ref_VW_34FR+watch-41-alum-starlight-nc-8s_VW_34FR_WF_CO_GEO_GB?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1676420295636%2C1661978672029" class="slide" width="500px" height="500px">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQXY3ref_VW_PF+watch-41-alum-starlight-nc-8s_VW_PF_WF_CO_GEO_GB?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1676420295414%2C1661979030943" class="slide" width="500px" height="500px">
+          <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MQXY3ref?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1676352571494" class="slide" width="500px" height="500px">
+        </div>
+        <div class="buttons">
+          <a href="#slide-31"></a>
+          <a href="#slide-32"></a>
+          <a href="#slide-33"></a>
+        </div>
+      </div>
+      <br>
+      <p>Apple Watch - Starlight Aluminium Case with Braided Solo Loop<br>
+        From £469<br>
+         <a href>More details here</a></p>
+   </div>
+</div>
+  </div>
 {% endblock %}
 
