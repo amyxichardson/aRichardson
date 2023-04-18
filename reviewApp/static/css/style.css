@@ -162,4 +162,3 @@ input[type=submit]:hover {
 #slide-33:target ~ .image-container {
     left: -1000px;
 }
-

@@ -18,7 +18,6 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
-    date_of_birth = forms.DateField()
     class Meta:
         model = Profile
-        fields = ['image','dob','address','country','town']
+        fields = ['image']

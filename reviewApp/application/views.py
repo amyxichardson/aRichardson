@@ -13,3 +13,8 @@ def contact(request):
 
 def product(request):
     return render(request, 'application/product.html', {'title': 'Product'})
+
+def all_products(request):
+    product_list = Product.objects.all()
+    return render(request, 'application/product_list.html',
+    {'product_list': product_list})
