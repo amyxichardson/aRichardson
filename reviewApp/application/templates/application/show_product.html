@@ -1,0 +1,33 @@
+{% extends "application/base.html" %}
+{%block content%}
+{% load static %}
+
+
+<div class="header">
+    <header><h1> Product </h1></header><br>
+</div>
+
+
+<div class="row">
+    <div class="col-sm-8">
+        <br>
+        <strong> {{ product }}</strong>
+        <p>{{ product.brand }}<br>£{{ product.price }}<br>Category: {{ product.category }}<br>Date released: {{ product.date_released }}<br>{{ product.description }}</p>
+        </div>
+
+    <div class="col-sm-4">
+        <p><img class="product-img" style="vertical-align: middle;width: 200px;height: 200px;"src="{{product.image.url}}"></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <br>
+        {% for review in review %}
+        <a href="{% url 'show-review' review.id%}">{{ review }}</a>
+        {{review.rating}}/5<br> {{review.text}}
+        {%endfor%}
+    </div>
+</div>
+
+{% endblock content%}

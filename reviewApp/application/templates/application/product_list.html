@@ -10,15 +10,16 @@
 <div class="row">
     <div class="col-sm-8">
         {%for product in product_list%}
-        <strong>{{  product }}</strong> 
-        <p>{{ product.brand }}<br>£{{ product.price }}<br>Category: {{ product.category }}<br>Date released: {{ product.date_released }}<br>{{ product.description }}</p>
-        {% endfor %}
+        <strong><a href="{% url 'show-product' product.id %}"> {{ product }} </a></strong><br>
+        <p>{{ product.brand }}<br>£{{ product.price }}<br><br><br>
+            {% endfor %}
         </div>
 
     <div class="col-sm-4">
         {%for product in product_list%}
-        <p><img class="product-img" style="vertical-align: middle;width: 200px;height: 200px;"src="{{product.image.url}}"></p>
+        <p><img class="product-img" style="vertical-align: middle;width: 100px;height: 100px;"src="{{product.image.url}}"></p>
         {% endfor %}
     </div>
 </div>
-{% endblock %}
+
+{% endblock content%}
