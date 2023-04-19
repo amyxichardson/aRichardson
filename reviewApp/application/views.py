@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Review, Product
-from .forms import ReviewForm
+from .forms import ReviewForm 
+from .forms import UpdateForm 
 from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -47,13 +48,23 @@ def add_review(request):
         if form.is_valid():
            form.save()
            return HttpResponseRedirect('/add_review?sumbitted=True')
-   
     else:
         form = ReviewForm
         if 'submitted' in request.GET:
             submitted = True
     
     return render(request, 'application/add_review.html',{'form':form, 'submitted':submitted})
+
+
+def update_review(request, review_id):
+    review=Review.objects.get(pk=review_id)
+    form = UpdateForm(request.POST or None, instance=review)
+    if form.is_valid():
+        form.save()
+        return redirect('list-product')  
+    
+    return render(request, 'application/update_review.html',
+    {'review':review, 'form':form}) 
     
 
 

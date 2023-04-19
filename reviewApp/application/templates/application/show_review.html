@@ -12,8 +12,10 @@
     <div class="col-sm-12">
         <br>
         <strong> {{ review }}</strong> <br>{{review.product}}
-        {{review.rating}}<br> {{review.text}}<br>{{review.date_reviewed}}
+        {{review.rating}}<br> {{review.text}}<br>{{review.date_reviewed}}<br>
+        <a href="{% url 'update-review' review.id%}">update</a>
          </div>
+         
 
 </div>
 

@@ -6,3 +6,8 @@ class ReviewForm(ModelForm):
     class Meta:
         model = Review
         fields = ('author', 'product', 'rating', 'text', 'date_reviewed')
+
+class UpdateForm(ModelForm):
+    class Meta:
+        model = Review
+        fields = ('rating', 'text', 'date_reviewed')

@@ -1,0 +1,21 @@
+{% extends "application/base.html" %}
+{%block content%}
+{% load static %}
+
+<div class="container" style="margin-top:30px">
+  <br>
+  <div class="header">
+  <header><h1>Update Review</h1></header><br>
+  </div>
+  <br><br>
+  <div class="row">
+      <div class="col-sm-12">
+        <form method="POST">
+            {% csrf_token%}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Update" class="btn btn-secondary">
+    </form>
+</div>
+
+{% endblock %}
