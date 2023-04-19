@@ -23,9 +23,16 @@
 <div class="row">
     <div class="col-sm-12">
         <br>
+        {% if user.is_authenticated %}
+        <a class="nav-item nav-link" href="{% url 'add-review' %}">Add Review</a>
+        {% else %}
+        <a class="nav-item nav-link" href="{% url 'login' %}">Login to leave a review</a>
+        {% endif %}
+        <br>
         {% for review in review %}
         <a href="{% url 'show-review' review.id%}">{{ review }}</a>
-        {{review.rating}}/5<br> {{review.text}}
+        {{review.rating}}/5<br>
+         {{review.text}}<br><br>
         {%endfor%}
     </div>
 </div>

@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Review, Product
+from .forms import ReviewForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def home(request):
@@ -37,5 +39,21 @@ def show_review(request, review_id):
     return render(request, 'application/show_review.html',
     {'review':review})
 
+
+def add_review(request):
+    submitted = False
+    if request.method =='POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+           form.save()
+           return HttpResponseRedirect('/add_review?sumbitted=True')
+   
+    else:
+        form = ReviewForm
+        if 'submitted' in request.GET:
+            submitted = True
+    
+    return render(request, 'application/add_review.html',{'form':form, 'submitted':submitted})
+    
 
 
