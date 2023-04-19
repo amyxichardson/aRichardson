@@ -13,7 +13,7 @@
         <br>
         <strong> {{ review }}</strong> <br>{{review.product}}
         {{review.rating}}<br> {{review.text}}<br>{{review.date_reviewed}}<br>
-        <a href="{% url 'update-review' review.id%}">update</a>
+        <a href="{% url 'update-review' review.id%}">update</a> <a href="{% url 'delete-review' review.id%}">delete</a>
          </div>
          
 

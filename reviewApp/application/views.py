@@ -65,6 +65,11 @@ def update_review(request, review_id):
     
     return render(request, 'application/update_review.html',
     {'review':review, 'form':form}) 
-    
+
+
+def delete_review(request, review_id):
+    review=Review.objects.get(pk=review_id)
+    review.delete()
+    return redirect('list-product')
 
 

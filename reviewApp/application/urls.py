@@ -11,4 +11,5 @@ urlpatterns =[
     path('show_review/<review_id>', views.show_review, name="show-review"),
     path('add_review/', views.add_review, name="add-review"),
     path('update_review/<review_id>', views.update_review, name="update-review"),
+    path('delete_review/<review_id>', views.delete_review, name="delete-review"),
 ]
