@@ -141,5 +141,10 @@ LOGIN_REDIRECT_URL= 'application-home'
 
 LOGIN_URL = 'login'
 
-EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
-EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST ='smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'c0036225@my.shu.ac.uk'
+EMAIL_HOST_PASSWORD = '' 
+# Cannot show my password
