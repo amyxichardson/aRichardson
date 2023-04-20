@@ -15,7 +15,7 @@ body {
   }
 
 
-/*For the Contact Page*/
+/*For the Contact Page - no longer needed*/ 
 input[type=text], select, textarea {
     width: 100%; /* Full width */
     padding: 12px; /* Some padding */ 

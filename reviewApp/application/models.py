@@ -33,3 +33,13 @@ class Review(models.Model):
 
     def get_absolute_url(self):
             return reverse('review-detail', kwargs={'pk': self.pk})
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    text = models.TextField()
+    
+    def __str__(self):
+            return self.name

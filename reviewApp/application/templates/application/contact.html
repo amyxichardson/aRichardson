@@ -1,5 +1,6 @@
 {% extends "application/base.html" %}
 {%block content%}
+{%load static%}
 
     <div class="header">
         <header><h1>Contact Us</h1></header><br>
@@ -12,25 +13,23 @@
           <img src = "https://st2.depositphotos.com/1001378/9102/v/950/depositphotos_91024908-stock-illustration-abstract-vertical-light-blue-background.jpg" width="100%">
         </div>
         <div class="col-sm-6">
+          <center>
             <div class="container">
-                <form action="action_page.php">
+              {% if submitted%}
+              Contact message sent
 
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Full Name">
+              {%else%}
+              <form action="" method="POST">
+                {% csrf_token %}
 
-                <label for="email">Email Address</label>
-                <input type="text" id="email" name="email" placeholder="Email Address">
+                {{ form.as_p }}
+                <input type ="submit" value="submit" class="btn btn-primary">
 
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Subject">
+              {%endif%}
 
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Please enter your message" style="height:200px"></textarea>
-
-                <input type="submit" value="Submit">
-
-                </form>
+              </form>
            </div>
+          </center>
         </div>
         <div class="col-sm-3">
           <img src = "https://st2.depositphotos.com/1001378/9102/v/950/depositphotos_91024908-stock-illustration-abstract-vertical-light-blue-background.jpg" width="100%">

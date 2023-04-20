@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Review, Product
-from .forms import ReviewForm, UpdateForm
+from .forms import ReviewForm, UpdateForm, ContactForm
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
 
@@ -8,14 +8,24 @@ from django.core.paginator import Paginator
 def home(request):
     return render(request, 'application/home.html', {'title': 'Home'})
 
+
 def about(request):
     return render(request, 'application/about.html', {'title': 'About'})
 
-def contact(request):
-    return render(request, 'application/contact.html', {'title': 'Contact'})
 
-def product(request):
-    return render(request, 'application/product.html', {'title': 'Product'})
+def contact(request):
+    submitted = False
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/contact?submitted=True', {'title': 'Contact'})
+    else:
+        form = ContactForm
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'application/contact.html', {'title': 'Contact', 'form':form, 'submitted':submitted})
+
 
 
 def all_products(request):
@@ -46,7 +56,7 @@ def add_review(request):
         form = ReviewForm(request.POST)
         if form.is_valid():
            form.save()
-           return HttpResponseRedirect('/add_review?sumbitted=True')
+           return HttpResponseRedirect('/add_review?<review.id>sumbitted=True')
     else:
         form = ReviewForm
         if 'submitted' in request.GET:
