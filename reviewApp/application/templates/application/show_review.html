@@ -4,16 +4,26 @@
 
 
 <div class="header">
-    <header><h1> Review </h1></header><br>
+    <header><h1>Review Details </h1></header><br>
 </div>
 
 
 <div class="row">
     <div class="col-sm-12">
         <br>
-        <strong> {{ review }}</strong> <br>{{review.product}}
-        {{review.rating}}<br> {{review.text}}<br>{{review.date_reviewed}}<br>
-        <a href="{% url 'update-review' review.id%}">update</a> <a href="{% url 'delete-review' review.id%}">delete</a>
+        <img class="account-img" style="vertical-align: middle;width: 70px;height: 70px;border-radius: 50%;" src="{{review.author.profile.image.url}}"/>
+        <strong> {{ review }}</strong> <br>
+        {{review.product}}<br>
+        {{review.rating}}&#11088;<br> 
+        {{review.text}}<br>
+        Reviewed at {{review.date_reviewed}}<br>
+
+
+        {% if review.author == user %}
+        <a class="btn btn-priamary btn-sm" href="{% url 'update-review' review.id%}" role="button">Update</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'delete-review' review.id%}" role="button">Delete</a>
+        {% else %}
+        {% endif %}
          </div>
          
 

@@ -18,6 +18,7 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    dob = forms.DateInput()
     class Meta:
         model = Profile
-        fields = ['image']
+        fields = ['fullname', 'dob', 'address', 'town', 'country', 'image']

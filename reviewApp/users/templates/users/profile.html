@@ -12,9 +12,6 @@
         <div class="media-body">
             <h2 class="account-heading">{{user.profile}}</h2>
             <p class="text-secondary">{{user.username}}</p>
-            <p class="text-secondary">{{user.profile.dob}}</p>
-            <p class="text-secondary">{{user.profile.town}}</p>
-            <p class="text-secondary">{{user.profile.country}}</p>
         </div>
         </div>
 
@@ -23,7 +20,8 @@
         
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Profile Details</legend>  
-                 {{ u_form.as_p}}
+                {{ u_form.as_p}}
+                {{ p_form.as_p}}
             </fieldset>
         
             <div class="form-group">

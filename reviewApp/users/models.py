@@ -6,10 +6,11 @@ from django.utils import timezone
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    fullname = models.CharField(max_length=255,null=True, blank=True)
     dob = models.DateField(null=True, blank=True)
-    address = models.CharField(max_length=255,null=True)
-    town = models.CharField(max_length=255,null=True)
-    country = models.CharField(max_length=255,null=True)
+    address = models.CharField(max_length=255,null=True, blank=True)
+    town = models.CharField(max_length=255,null=True, blank=True)
+    country = models.CharField(max_length=255,null=True, blank=True)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
     def __str__(self):

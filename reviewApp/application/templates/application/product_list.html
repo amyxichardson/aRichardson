@@ -5,19 +5,20 @@
 <div class="header">
     <header><h1>Products</h1></header><br>
 </div>
-
 <br><br> 
+
 <div class="row">
     <div class="col-sm-8">
-        {%for product in product_list%}
+        {% for product in product_list %}
         <strong><a href="{% url 'show-product' product.id %}"> {{ product }} </a></strong><br>
-        <p>{{ product.brand }}<br>£{{ product.price }}<br><br><br>
+        <p>{{ product.brand }}<br>
+            £{{ product.price }}<br><br><br>
             {% endfor %}
         </div>
 
     <div class="col-sm-4">
-        {%for product in product_list%}
-        <p><img class="product-img" style="vertical-align: middle;width: 100px;height: 100px;"src="{{product.image.url}}"></p>
+        {% for product in product_list %}
+        <p><img class="product-img" style="vertical-align: middle;width: 100px;height: 100px;"src="{{product.image.url}}"></p><br>
         {% endfor %}
     </div>
 </div>

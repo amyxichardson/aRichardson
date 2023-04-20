@@ -1,16 +1,21 @@
 {% extends "application/base.html" %}
 {%block content%}
 
-<br><br>
 <div class="header">
   <h1>SWatchReview</h1>
   <p>Your go-to source for honest smart watch reviews.</p>
 </div>
-<div class="container" style="margin-top:30px">
-    <div class="row">
 
+    <div class="row">
       <div class="col-sm-12">
-        <h3>Featured Product of the week - </h3> <a href="{% url 'show-product' 1 %}">Apple Watch - Aluminium Case with Sport Band</a>
+        <br>
+        <h3>Search for products here...</h3>
+        <form class="d-flex" method="POST" action="{%url 'search-products'%}">
+          {%csrf_token%}
+          <input class="form-control me-2" type="search" aria-label="Search" name="searched">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </form>
+        <br><h3>Featured Product of the week - </h3> <a href="{% url 'show-product' 1 %}">Apple Watch - Aluminium Case with Sport Band</a>
         <div class="slider">
           <span id="slide-1"></span>
           <span id="slide-2"></span>
@@ -39,5 +44,5 @@
     </div>
   </div>
   </div>
-</div>
+
 {% endblock %}

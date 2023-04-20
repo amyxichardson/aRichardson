@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Review, Product
-from .forms import ReviewForm 
-from .forms import UpdateForm 
+from .forms import ReviewForm, UpdateForm
 from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
@@ -20,7 +20,6 @@ def product(request):
 
 def all_products(request):
     product_list = Product.objects.all()
-   
     return render(request, 'application/product_list.html',
     {'product_list': product_list})
 
@@ -72,4 +71,11 @@ def delete_review(request, review_id):
     review.delete()
     return redirect('list-product')
 
-
+def search_products(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        products = Product.objects.filter(name__contains=searched)        
+        
+        return render(request, 'application/search_products.html',{'searched':searched, 'products':products}) 
+    else:
+        return render(request, 'application/search_products.html',{}) 
